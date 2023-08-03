@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Themes } from '../header.ports';
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(localStorage ? localStorage.getItem('theme') : Themes.LIGHT);
+  const [theme, setTheme] = useState(typeof window !== 'undefined' ? localStorage.getItem('theme') : Themes.LIGHT);
   const toggleTheme = () => {
     setTheme(theme === Themes.DARK ? Themes.LIGHT : Themes.DARK);
   };
