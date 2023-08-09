@@ -5,6 +5,7 @@ type Job = {
   startDate: string;
   endDate: string;
   description: string;
+  imageHref: string;
   bonus?: string;
   links?: string[];
 }
@@ -16,6 +17,7 @@ export const jobHistory: Job[] = [
     location: 'Paris, France',
     startDate: '11/2022',
     endDate: 'Present',
+    imageHref: '/discngine.png',
     description: 'Full stack development and project management of a web applications for scientific projects. Utilizing React, typescipt, node.js with nest.js and many more.',
   },
   {
@@ -24,7 +26,8 @@ export const jobHistory: Job[] = [
     location: 'Paris, France',
     startDate: '04/2022',
     endDate: '11/2022',
-    description: 'Full stack engineer on the web team. Utilizing React, Typescipt, node.js with nest.js and many more.',
+    imageHref: '/cubyn.ico',
+    description: 'Full stack engineer on the web team. Utilizing React, Typescript, node.js with nest.js and many more.',
   },
   {
     company: 'World Bank',
@@ -32,6 +35,7 @@ export const jobHistory: Job[] = [
     location: 'Europe & Central Asia',
     startDate: '12/2021',
     endDate: '01/2023',
+    imageHref: '/wbg.png',
     description: 'Headed the IT component of a web project to allow users across Central Asia to review roads and border crossings.',
   },
   {
@@ -40,6 +44,7 @@ export const jobHistory: Job[] = [
     location: 'London, England',
     startDate: '05/2021',
     endDate: '05/2022',
+    imageHref: '/wakeflow.ico',
     description: '1st hire of a startup. Focused on creating in-house web-application solutions for a range of global clients.',
   },
   {
@@ -48,6 +53,7 @@ export const jobHistory: Job[] = [
     location: 'Auckland, New Zealand',
     startDate: '11/2018',
     endDate: '06/2021',
+    imageHref: '/towerInsurance.png',
     description: 'Using .NetCore to create Microsoft based microservices I created numerous automation solutions. Including a storm warning system for the Pacific Islands.',
   },
   {
@@ -56,6 +62,7 @@ export const jobHistory: Job[] = [
     location: 'Auckland, New Zealand',
     startDate: '01/2015',
     endDate: '11/2018',
+    imageHref: '/maynardmarks.ico',
     description: 'Worked within teams to achieve success on several building projects, including commercial and residential structures',
   }
 ]

@@ -8,7 +8,7 @@ const TextBox = ({ classes, children }: TextBoxProps) => {
   return (
     <div
       className={clsx(
-        `bg-base-content text-neutral w-fit h-fit box-border p-3 rounded ${classes}`,
+        `bg-base-content text-neutral box-border p-3 rounded ${classes}`,
       )}
     >
       {children}
