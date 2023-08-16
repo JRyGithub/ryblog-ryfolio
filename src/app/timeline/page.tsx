@@ -12,17 +12,17 @@ import { isMobile } from 'react-device-detect';
 import { useEffect, useState } from 'react';
 
 const Timeline = () => {
-  const [iconSizes, setIconSizes] = useState<[number,number]>([35,35]);
-
+  const [iconSizes, setIconSizes] = useState<[number, number]>([35, 35]);
   useEffect(() => {
-    if(isMobile) setIconSizes([20,20]);
-    else setIconSizes([35,35]);
+    if (isMobile) setIconSizes([20, 20]);
+    else setIconSizes([35, 35]);
   }, [isMobile]);
+
 
   return (
     <div className="flex flex-col justify-center items-center overflow-hidden mt-5">
       <FancyTitleBox imgHref={'/Josh.jpeg'} />
-      <VerticalTimeline lineColor="hsl(var(--a))">
+      <VerticalTimeline lineColor="hsl(var(--a))" layout='1-column-left'>
         {jobHistory.map((job, index) => {
           if (index === 0) {
             return (
@@ -45,6 +45,7 @@ const Timeline = () => {
                   </div>
                 }
               >
+
                 <h3 className="vertical-timeline-element-title">
                   {job.company} - {job.title}
                 </h3>
@@ -58,8 +59,9 @@ const Timeline = () => {
           return (
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
+              onTimelineElementClick={() => console.log('clicked')}
               date={`${job.startDate} - ${job.endDate}`}
-              contentStyle={{ background: 'hsl(var(--b3))', color: '#fff' }}
+              contentStyle={{ background: 'hsl(var(--pc))', color: '#fff' }}
               iconStyle={{ background: 'hsl(var(--a))', color: '#fff' }}
               icon={
                 <div className='w-full h-full flex flex-col justify-center items-center'>

@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .glassMorphism {
+    @apply bg-primary-content rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-60 box-border border border-primary-content;
+  }
+  .glassMorphism-none {
+    @apply bg-primary-content rounded-sm bg-clip-padding backdrop-filter-none backdrop-blur-sm bg-opacity-0 box-border border-none;
+  }
+}

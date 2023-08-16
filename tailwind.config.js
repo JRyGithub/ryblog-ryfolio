@@ -20,6 +20,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      backgroundImage: {
+        'profile-photo-bw': "url('/JoshBW.jpeg')",
+      },
       keyframes: {
         animatedgradient: {
           '0%': { backgroundPosition: '0% 50%' },

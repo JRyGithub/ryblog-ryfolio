@@ -1,19 +1,30 @@
 import Image from "next/image";
 import TextLink from "../textLink/textLink";
-
+import { isMobile } from "react-device-detect";
 type FancyTitleBoxProps = {
   imgHref: string;
 };
 
 const FancyTitleBox = (props: FancyTitleBoxProps) => {
+
   return (
-    <div className="flex flex-row gap-5 h-fit justify-between bg-neutral-content p-5">
-      <div className="flex flex-col justify-start w-64">
+    <div className="flex flex-row gap-5 h-fit justify-between md:bg-neutral-content p-5 bg-profile-photo-bw bg-cover md:bg-none md:rounded-md">
+      <div className="
+      flex 
+      flex-col 
+      justify-start 
+      w-64 
+      md:bg-none p-3 
+      md:p-0
+      glassMorphism
+      md:glassMorphism-none
+      md:bg-neutral-content
+      ">
         <div className="flex flex-row items-start font-sans">
           <span className="text-9xl font-bold mr-[0.5rem] mt-[-0.15em] text-accent">P</span>
           <span className="flex flex-col justify-even h-full">
-            <span className="text-4xl">ORTFOLIO</span>
-            <span className="text-4xl">TIMELINE</span>
+            <span className="text-3xl md:text-4xl">ORTFOLIO</span>
+            <span className="text-3xl md:text-4xl">TIMELINE</span>
           </span>
         </div>
         <div className="italic">
@@ -25,7 +36,7 @@ const FancyTitleBox = (props: FancyTitleBoxProps) => {
         alt="Picture of the author"
         width={200}
         height={200}
-        className="grayscale"/>
+        className="grayscale hidden md:block" />
     </div>
   );
 };
