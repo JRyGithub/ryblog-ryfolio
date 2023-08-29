@@ -31,5 +31,5 @@ export const HeaderItems: HeaderItem[] = [
 
 export enum Themes {
   LIGHT = 'pastel',
-  DARK = 'dracula',
+  DARK = 'dark',
 }

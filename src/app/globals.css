@@ -4,7 +4,7 @@
 
 @layer components {
   .glassMorphism {
-    @apply bg-primary-content rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-60 box-border border border-primary-content;
+    @apply bg-neutral rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-60 box-border border border-neutral;
   }
   .glassMorphism-none {
     @apply bg-primary-content rounded-sm bg-clip-padding backdrop-filter-none backdrop-blur-sm bg-opacity-0 box-border border-none;

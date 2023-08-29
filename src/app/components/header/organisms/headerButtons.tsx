@@ -6,8 +6,8 @@ const HeaderButtons = () => {
     <>
       <ThemeToggle />
       <Link href="/notCreated">
-        <button className="rounded-full box-border p-1 px-2  bg-accent border-accent text-primary-content
-                hover:bg-primary hover:border-primary">
+        <button className="btn-sm rounded-full text-neutral-content hover:text-primary-content
+                hover:bg-primary hover:border-primary transition hover:scale-110 duration-700 hover:ease-in-out">
           Login
         </button>
       </Link>

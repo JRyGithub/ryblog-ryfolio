@@ -12,36 +12,42 @@ import { isMobile } from 'react-device-detect';
 import { useEffect, useState } from 'react';
 
 const Timeline = () => {
-  const [iconSizes, setIconSizes] = useState<[number, number]>([35, 35]);
-  useEffect(() => {
-    if (isMobile) setIconSizes([20, 20]);
-    else setIconSizes([35, 35]);
-  }, [isMobile]);
-
+  const [clickedTimelineElement, setClickedTimelineElement] = useState<string | null>(null);
 
   return (
     <div className="flex flex-col justify-center items-center overflow-hidden mt-5">
       <FancyTitleBox imgHref={'/Josh.jpeg'} />
-      <VerticalTimeline lineColor="hsl(var(--a))" layout='1-column-left'>
+      <VerticalTimeline lineColor="hsl(var(--p))" layout='1-column-left'>
         {jobHistory.map((job, index) => {
           if (index === 0) {
             return (
               <VerticalTimelineElement
-                className="vertical-timeline-element--work text-sm"
+                key={job.company}
+                className="vertical-timeline-element--work text-sm cursor-pointer pr-5"
+                onTimelineElementClick={() => setClickedTimelineElement(job.company)}
                 contentStyle={{
-                  background: 'hsl(var(--af))',
-                  color: 'hsl(var(--n))',
+                  background: !clickedTimelineElement || clickedTimelineElement === job.company ? 'hsl(var(--p))' : 'hsl(var(--n))',
+                  color: !clickedTimelineElement || clickedTimelineElement === job.company ? 'hsl(var(--pc))' : 'hsl(var(--nc))',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                  transitionDuration: '700ms',
                 }}
-                contentArrowStyle={{ borderRight: '7px solid  hsl(var(--a))' }}
+                contentArrowStyle={{ 
+                  borderRight: !clickedTimelineElement || clickedTimelineElement === job.company ? '7px solid  hsl(var(--p))' : '7px solid  hsl(var(--n))',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                  transitionDuration: '700ms',
+                }}
                 date={`${job.startDate} - ${job.endDate}`}
                 iconStyle={{
-                  background: 'hsl(var(--af))',
-                  color: 'hsl(var(--s))',
+                  background: 'hsl(var(--n))',
+                  color: 'hsl(var(--pc))',
+                  boxShadow: '0 0 0 4px hsl(var(--p))',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                  transitionDuration: '700ms',
                 }}
                 iconClassName="shadow-black"
                 icon={
                   <div className='w-full h-full flex flex-col justify-center items-center'>
-                    <Image src={job.imageHref} alt={`${job.company}'logo'`} width={iconSizes[0]} height={iconSizes[1]} />
+                    <Image src={job.imageHref} alt={`${job.company}'logo'`} width={20} height={20} />
                   </div>
                 }
               >
@@ -58,16 +64,30 @@ const Timeline = () => {
           }
           return (
             <VerticalTimelineElement
-              className="vertical-timeline-element--work"
-              onTimelineElementClick={() => console.log('clicked')}
+              key={job.company}
+              className="vertical-timeline-element--work cursor-pointer pr-5"
+              onTimelineElementClick={() => setClickedTimelineElement(job.company)}
               date={`${job.startDate} - ${job.endDate}`}
-              contentStyle={{ background: 'hsl(var(--pc))', color: '#fff' }}
-              iconStyle={{ background: 'hsl(var(--a))', color: '#fff' }}
+              contentStyle={{ 
+                background: clickedTimelineElement === job.company ? 'hsl(var(--p)': 'hsl(var(--n))', 
+                color: clickedTimelineElement === job.company ? 'hsl(var(--pc)' : 'hsl(var(--nc))',
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                transitionDuration: '700ms',
+              }}
+              iconStyle={{ 
+                background: 'hsl(var(--n))', 
+                color: 'hsl(var(--sc))', boxShadow: '0 0 0 4px hsl(var(--p))',
+             }}
               icon={
                 <div className='w-full h-full flex flex-col justify-center items-center'>
-                  <Image src={job.imageHref} alt={`${job.company}'logo'`} width={iconSizes[0]} height={iconSizes[1]} />
+                  <Image src={job.imageHref} alt={`${job.company}'logo'`} width={20} height={20} />
                 </div>
               }
+              contentArrowStyle={{ 
+                borderRight: clickedTimelineElement === job.company ? '7px solid  hsl(var(--p))' : '7px solid  hsl(var(--n))',
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                transitionDuration: '700ms',
+              }}
             >
               <h3 className="vertical-timeline-element-title">
                 {job.company} - {job.title}
