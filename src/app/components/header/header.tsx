@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Header = () => {
     return (
-        <div className="navbar bg-neutral font-mono text-accent sticky top-0 left-0 max-h-10 z-50">
+        <div className="navbar bg-neutral font-mono text-neutral-content sticky top-0 left-0 max-h-10 z-50">
             {/* Small Screens */}
             <div className="navbar-start">
                 <div className="dropdown">

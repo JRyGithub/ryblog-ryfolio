@@ -16,7 +16,7 @@ module.exports = {
       "halloween",
       "black",
     ],
-    darkTheme: "dracula",
+    darkTheme: "dark",
   },
   theme: {
     extend: {

@@ -30,7 +30,7 @@ const AllHeaderItems = ({ horizontal = false }: IAllHeaderItems) => {
     return (
       <li tabIndex={0} key={item.title} className='px-1'>
         <details>
-          <summary  className="active:border-primary border-2 border-neutral">
+          <summary>
             <Link href={item.href} className={clsx(horizontal ? 'justify-between' : '')}>
               {item.title}
             </Link></summary>
