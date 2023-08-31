@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: Proxima Nova, system-ui, sans-serif;
+  }
+}
+
 @layer components {
   .glassMorphism {
     @apply bg-neutral rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-60 box-border border border-neutral;

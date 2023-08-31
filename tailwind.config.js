@@ -22,6 +22,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'profile-photo-bw': "url('/JoshBW.jpeg')",
+        'computer-background': "url('/computerBackground.jpg')",
       },
       keyframes: {
         animatedgradient: {
