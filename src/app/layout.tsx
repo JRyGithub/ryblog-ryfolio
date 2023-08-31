@@ -19,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className="bg-gradient-to-bl from-base-100 from-1% via-base-200 via-15% to-base-300 to-90%">
         {children}
