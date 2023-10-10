@@ -5,16 +5,15 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  plugins: [require('daisyui')],
+  plugins: [
+    require('daisyui'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
   daisyui: {
     themes: [
       "pastel",
-      "dracula",
-      "night",
-      "coffee",
       "dark",
-      "halloween",
-      "black",
     ],
     darkTheme: "dark",
   },
