@@ -6,26 +6,16 @@ export type HeaderItem = {
 
 export const HeaderItems: HeaderItem[] = [
   {
-      title: 'Timeline',
-      href: 'timeline'
+    title: 'Timeline',
+    href: '/timeline'
   },
   {
-      title: 'Blog',
-      href: 'blog',
-      children: [
-          {
-              title: 'All Blogs',
-              href: 'all'
-          },
-          {
-              title: 'UseMemo',
-              href: 'useMemo'
-          }
-      ]
+    title: 'Blog',
+    href: '/blog',
   },
   {
-      title: 'Contact',
-      href: 'contact'
+    title: 'Contact',
+    href: '/contact'
   }
 ]
 
