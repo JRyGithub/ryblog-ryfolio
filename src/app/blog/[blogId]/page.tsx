@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 import 'highlight.js/styles/github-dark.css';
+import Image from "next/image";
 
 export const revalidate = 86400; // 24 Hours
 
@@ -55,21 +56,26 @@ export default async function ({ params: { blogId } }: GenerateMetaDataProps) {
   )
 
   return (
-    <>
-      <h2 className="text-3xl mt-4 mb-0">{meta.title}</h2>
-      <p className="mt-0 text-sm">{pubDate}</p>
-      <article>
-        {content}
-      </article>
-      <section>
-        <h3>Related:</h3>
-        <div className="flex flex-row gap-4">
-          {tags}
-        </div>
+    <div className="w-full flex justify-center p-2">
+      <section className="w-full mt-2 prose prose-sm md:prose-xl dark:prose-invert">
+        <h2 className="text-3xl mt-4 mb-2">{meta.title}</h2>
+        {meta.image && (
+          <Image src={meta.image} height={300} width={300} alt={`${meta.title} image`} className="mx-auto" />
+        )}
+        <p className="mt-0 text-sm">{pubDate}</p>
+        <article>
+          {content}
+        </article>
+        <section>
+          <h3>Related:</h3>
+          <div className="flex flex-row gap-4">
+            {tags}
+          </div>
+        </section>
+        <p className="mb-10">
+          <Link href={'/'}>Home</Link>
+        </p>
       </section>
-      <p className="mb-10">
-        <Link href={'/'}>Home</Link>
-      </p>
-    </>
+    </div>
   )
 }
