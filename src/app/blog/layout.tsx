@@ -7,4 +7,3 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </SharedLayout>
   );
 }
-//mt-6 mx-auto md:max-w-2xl prose prose-sm md:prose-xl prose-slate dark:prose-invert

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 import 'highlight.js/styles/github-dark.css';
 import Image from "next/image";
+import { Metadata, NextPage, ResolvingMetadata } from 'next';
 
 export const revalidate = 86400; // 24 Hours
 
@@ -25,7 +26,7 @@ type GenerateMetaDataProps = {
 }
 
 // Simply generates the metadata for the page from the slug
-export async function generateMetaData({ params: { blogId } }: GenerateMetaDataProps) {
+export async function generateMetadata({ params: { blogId } }: GenerateMetaDataProps, parent: ResolvingMetadata): Promise<Metadata> {
   const blog = await getBlogByName(`${blogId}.mdx`); //deduped!
 
   if (!blog) {
@@ -60,7 +61,7 @@ export default async function ({ params: { blogId } }: GenerateMetaDataProps) {
       </Link>
     )
   }
-  )
+  );
 
   return (
     <div className="w-full flex justify-center p-2">
