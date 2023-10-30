@@ -20,7 +20,7 @@ export async function generateStaticParams() {
   return Array.from(tags).map(tag => ({ tag }));
 }
 
-export function generateMetaData({ params: { tag } }: Props) {
+export function generateMetadata({ params: { tag } }: Props) {
   return {
     title: `Blogs about ${tag}`,
   };
