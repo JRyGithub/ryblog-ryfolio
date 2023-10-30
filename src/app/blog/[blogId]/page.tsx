@@ -51,18 +51,25 @@ export default async function ({ params: { blogId } }: GenerateMetaDataProps) {
 
   const pubDate = meta.date;
 
-  const tags = meta.tags.map((tag, i) =>
-    <Link key={i} href={`/tags/${tag}`}>{tag}</Link>
+  const tags = meta.tags.map((tag, i) => {
+    return (
+      <Link key={i} href={`/tags/${tag}`}>
+        <span className={`badge badge-md badge-primary cursor-pointer md:hover:badge-accent gap-1 select-none`}>
+          {tag}
+        </span>
+      </Link>
+    )
+  }
   )
 
   return (
     <div className="w-full flex justify-center p-2">
       <section className="w-full mt-2 prose prose-sm md:prose-xl dark:prose-invert">
-        <h2 className="text-3xl mt-4 mb-2">{meta.title}</h2>
+        <h2 className="mt-4 mb-2">{meta.title}</h2>
         {meta.image && (
           <Image src={meta.image} height={300} width={300} alt={`${meta.title} image`} className="mx-auto" />
         )}
-        <p className="mt-0 text-sm">{pubDate}</p>
+        <p className="mt-0 text-sm italic">- Joshua Ryland, last updated {pubDate}</p>
         <article>
           {content}
         </article>
@@ -72,9 +79,12 @@ export default async function ({ params: { blogId } }: GenerateMetaDataProps) {
             {tags}
           </div>
         </section>
-        <p className="mb-10">
-          <Link href={'/'}>Home</Link>
-        </p>
+        <section>
+          <div className="flex flex-row gap-1 mb-10">
+            <Link href={'/'}>Home</Link>
+            <Link href={'/blog'}>Blogs</Link>
+          </div>
+        </section>
       </section>
     </div>
   )

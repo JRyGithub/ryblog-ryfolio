@@ -6,11 +6,12 @@ import { Meta } from '@/lib/blogs/blogs.ports';
 import { useState } from 'react';
 
 type BlogsProps = {
+  optionalTag?: [string];
   blogsMeta?: Meta[];
 }
 
-export default function Blogs({ blogsMeta }: BlogsProps) {
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+export default function Blogs({ blogsMeta, optionalTag }: BlogsProps) {
+  const [selectedTags, setSelectedTags] = useState<string[]>(optionalTag ? optionalTag : []);
   const [search, setSearch] = useState<string>('');
 
   if (!blogsMeta) {
@@ -58,13 +59,25 @@ export default function Blogs({ blogsMeta }: BlogsProps) {
         {
           blogsMeta.filter(blog => {
             if (search) {
-              return blog.title.toLowerCase().includes(search.toLowerCase()) || blog.tags.some(tag => tag.toLowerCase().includes(search.toLowerCase()));
+              return blog.title.toLowerCase().includes(search.toLowerCase())
+                || blog.tags.some(tag => tag.toLowerCase().includes(search.toLowerCase()))
             }
             return true;
-          }
-          ).map(blog =>
-            <BlogListItem blogMeta={blog} />
-          )
+          })
+            .filter(blog => {
+              if (selectedTags.length > 0) {
+                return blog.tags.some(tag => {
+                  if (selectedTags.length) {
+                    return selectedTags.includes(tag);
+                  };
+                  return true;
+                });
+              }
+              return true;
+            })
+            .map(blog =>
+              <BlogListItem blogMeta={blog} />
+            )
         }
       </ul>
     </section>
