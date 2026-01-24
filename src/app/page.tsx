@@ -1,21 +1,21 @@
-import Spline from '@splinetool/react-spline/next';
+import AboutSection from '@/components/about-section/about-section';
+import { ContactSection } from '@/components/contact-section/contact-section';
+import { ExperienceSection } from '@/components/experience-section/experience-section';
+import { Footer } from '@/components/footer/footer';
+import HeroSection from '@/components/hero-section/hero-section';
+import Navigation from '@/components/navigation/navigation';
+import ProjectsSection from '@/components/projects-section/projects-section';
 
-export default function Home() {
+export default function Portfolio() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="h-screen w-screen relative">
-        <div className="absolute m-4 md:m-10 text-white text-md font-thin flex flex-col gap-1">
-          <span>Joshua Ryland</span>
-          <span className='italic'>Lead Software Developer</span>
-        </div>
-        <div className="absolute bottom-2 right-0 w-44 h-12 bg-[#1c232b]" />
-        <Spline
-          className='h-full bg-[#1c232b]'
-          scene="https://prod.spline.design/zgSriR078vW2ueYZ/scene.splinecode"
-        />
-      </div>
+    <main className="relative min-h-screen bg-background text-foreground">
+      <Navigation />
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <ContactSection />
+      <Footer />
     </main>
   );
 }
-
-export const revalidate = 86400; // 24 Hours
