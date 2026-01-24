@@ -1,20 +1,16 @@
-import Spline from "@splinetool/react-spline";
-
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
-       <main className="flex min-h-screen flex-col items-center justify-center">
-         <div className="h-screen w-screen relative">
-           <div className="absolute m-4 md:m-10 text-white text-md font-thin flex flex-col gap-1">
-             <span>Joshua Ryland</span>
-             <span className='italic'>Lead Software Developer</span>
-           </div>
-           <div className="absolute bottom-2 right-0 w-44 h-12 bg-[#1c232b]" />
-           <Spline
-             className='h-full'
-             scene="https://prod.spline.design/zgSriR078vW2ueYZ/scene.splinecode" 
-           />
-         </div>
-       </main>
+    <main className="flex min-h-screen flex-col items-center justify-center px-6">
+      <h1 className="mb-4 text-6xl font-bold">404</h1>
+      <p className="mb-8 text-xl text-muted">Page not found</p>
+      <Link
+        href="/"
+        className="rounded-lg bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary/80"
+      >
+        Go Home
+      </Link>
+    </main>
   );
 }

@@ -1,18 +1,56 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@plugin "tailwindcss-animate";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Custom CSS Variables for theming */
+@theme {
+  --color-primary: oklch(0.72 0.12 180);
+  --color-primary-foreground: oklch(0.14 0.015 220);
+  --color-secondary: oklch(0.22 0.015 220);
+  --color-secondary-foreground: oklch(0.92 0.01 220);
+  --color-accent: oklch(0.72 0.12 180);
+  --color-accent-foreground: oklch(0.14 0.015 220);
+  --color-background: oklch(0.14 0.015 220);
+  --color-foreground: oklch(0.92 0.01 220);
+  --color-muted: oklch(0.25 0.015 220);
+  --color-muted-foreground: oklch(0.65 0.02 220);
+  --color-card: oklch(0.18 0.015 220);
+  --color-card-foreground: oklch(0.92 0.01 220);
+  --color-border: oklch(0.28 0.015 220);
+  --color-input: oklch(0.28 0.015 220);
+  --color-ring: oklch(0.72 0.12 180);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Base styles */
 @layer base {
-  html {
-    font-family: urbanist, gupter;
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
   }
 }
 
-@layer components {
-  .glassMorphism {
-    @apply bg-neutral rounded-sm bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-60 box-border border border-neutral;
-  }
-  .glassMorphism-none {
-    @apply bg-primary-content rounded-sm bg-clip-padding backdrop-filter-none backdrop-blur-sm bg-opacity-0 box-border border-none;
-  }
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-ring;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-primary/30;
 }

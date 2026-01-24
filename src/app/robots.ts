@@ -1,10 +1,11 @@
-export default function robots() {
-    return {
-      rules: {
-        userAgent: '*',
-        allow: '/',
-        disallow: '/private/',
-      },
-      sitemap: 'https://joshryland.com/sitemap.xml',
-    };
-  }
+import type { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
+    sitemap: 'https://yourwebsite.com/sitemap.xml',
+  };
+}
