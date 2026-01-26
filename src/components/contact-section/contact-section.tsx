@@ -4,6 +4,7 @@ import { useInView } from '@/hooks/use-parallax';
 import { Button } from '@/components/ui/button';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils/utils';
+import { SocialLinks } from '@/core/constants/social-links';
 
 export function ContactSection() {
   const { ref, isInView } = useInView(0.2);
@@ -52,7 +53,7 @@ export function ContactSection() {
             size="lg"
             className="group gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            <a href="mailto:hello@example.com">
+            <a href={SocialLinks[2].href}>
               Get In Touch
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
