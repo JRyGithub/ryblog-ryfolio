@@ -1,9 +1,10 @@
 'use client';
 
-import { experiences } from '@/core/constants/experiences';
 import { useInView } from '@/hooks/use-parallax';
 import { cn } from '@/lib/utils/utils';
 import { ExternalLink } from 'lucide-react';
+import ScrollIndicator from '../shared/scroll-indicator';
+import { experiences } from './experience-section.props';
 
 export function ExperienceSection() {
   const { ref, isInView } = useInView(0.1);
@@ -67,6 +68,7 @@ export function ExperienceSection() {
           ))}
         </div>
       </div>
+      <ScrollIndicator scrollTo="projects" />
     </section>
   );
 }
